@@ -15,8 +15,18 @@ public:
     explicit ExamDialog(QWidget *parent = nullptr);
     ~ExamDialog();
 
+public slots:
+    void inputDone();
+    void resetInput();
+
+signals:
+    void inputFinished();
+
 private:
     Ui::ExamDialog *ui;
+    QVector<unsigned int> m_gradeAmountList;
+
+    void handleInputError();
 };
 
 #endif // EDITEXAMDIALOG_H
